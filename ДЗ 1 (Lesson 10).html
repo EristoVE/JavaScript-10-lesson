@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>
+            Case 1 Theme 10
+        </title>
+    </head>
+        <body>
+            <script>
+                'use strict';  
+
+                // Сгенерировать матрицу смежности неориентированного графа случайным
+                // образом. Определить, существует ли ребро между парой вершин. Количество
+                // вершин графа и номера пары вершин вводит пользователь.
+                    
+                    let vertexRows = prompt('Введите количество вершин графа');
+                    let vertex1 = prompt('Введите номер первой вершины');
+                    let vertex2 = prompt('Введите номер второй вершины');
+                    let matrix = [];
+        
+                    vertex1 = Number(vertex1);
+                    vertex2 = Number(vertex2);
+                    
+                    for (let i = 0; i < vertexRows; i++) {
+                        matrix[i] = [];
+                        matrix[i][i] = 0;
+                    };
+
+                    for (let i = 0; i < vertexRows; i++) {
+                        for (let j = i + 1; j < vertexRows; j++) {
+                            matrix[i][j] = Math.round(Math.random());
+                            matrix[j][i] = matrix[i][j];
+                        };
+                    };
+
+                    console.log('Матрица смежности', matrix);
+                    console.log('Номер первой вершины =', vertex1, 'и','Номер второй вершины =', vertex2);
+
+                    if (matrix[vertex1 - 1][vertex2 - 1] != 0) {
+                        console.log('Между парой этих вершин, существует ребро', matrix[vertex1 - 1][vertex2 - 1]);
+                    } else {
+                        console.log('Ребер иежду парой этих вершин не существует');
+                    };
+                
+            </script>
+        </body>
+</html>
